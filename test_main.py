@@ -3,6 +3,7 @@ Tests for jwt flask app.
 '''
 import os
 import json
+from pickle import FALSE
 import pytest
 
 import main
@@ -35,6 +36,6 @@ def test_auth(client):
                            data=json.dumps(body),
                            content_type='application/json')
 
-    assert response.status_code == 200
+    assert response.status_code == False
     token = response.json['token']
     assert token is not None
